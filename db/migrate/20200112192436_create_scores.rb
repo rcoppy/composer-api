@@ -2,7 +2,7 @@ class CreateScores < ActiveRecord::Migration[6.0]
   def change
     create_table :scores do |t|
       t.belongs_to :author_id, foreign_key: {to_table: :users}
-      t.belongs_to :app_id, foreign_key: true
+      t.belongs_to :app, foreign_key: true
       
       t.string :file
       t.string :title
