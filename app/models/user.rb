@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
+
+  has_many :apps, :scores, :score_comments, :app_comments, :decisions, :ratings
 end
