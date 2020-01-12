@@ -1,4 +1,4 @@
 class ScoreTag < ApplicationRecord
-    has_one :score
-    has_one :tag
+    belongs_to :score
+    belongs_to :tag
 end
