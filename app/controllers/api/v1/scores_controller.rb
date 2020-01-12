@@ -14,19 +14,20 @@ class Api::V1::ScoresController < ApplicationController
   end
 
   def show_tags
-    render json: @score.tags
+    # @score, even though it's a before_action, returns null?
+    render json: Score.find(params[:id]).tags #@score
   end
 
   def show_genres
-    render json: @score.genres
+    render json: Score.find(params[:id]).genres
   end
 
   def add_tag
-    @score.tags << Tag.find(tag_params[:id])
+    render json: Score.find(params[:id]).tags << Tag.find(tag_params[:id])
   end
 
   def add_genre
-    @score.genres << Genre.find(genre_params[:id])
+    render json: Score.find(params[:id]).genres << Genre.find(genre_params[:id])
   end
 
   # POST /scores
