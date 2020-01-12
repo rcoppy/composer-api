@@ -18,7 +18,7 @@ class Api::V1::ScoreCommentsController < ApplicationController
     @score_comment = ScoreComment.new(score_comment_params)
 
     if @score_comment.save
-      render json: @score_comment, status: :created, location: @score_comment
+      render json: @score_comment, status: :created, location: api_v1_score_comment_url(@score_comment)
     else
       render json: @score_comment.errors, status: :unprocessable_entity
     end

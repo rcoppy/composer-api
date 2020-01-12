@@ -18,7 +18,7 @@ class Api::V1::DecisionsController < ApplicationController
     @decision = Decision.new(decision_params)
 
     if @decision.save
-      render json: @decision, status: :created, location: @decision
+      render json: @decision, status: :created, location: api_v1_decision_url(@decision)
     else
       render json: @decision.errors, status: :unprocessable_entity
     end

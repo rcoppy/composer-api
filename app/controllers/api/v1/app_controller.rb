@@ -18,7 +18,7 @@ class Api::V1::AppController < ApplicationController
     @app = App.new(app_params)
 
     if @app.save
-      render json: @app, status: :created, location: @app
+      render json: @app, status: :created, location: api_v1_app_url(@app)
     else
       render json: @app.errors, status: :unprocessable_entity
     end
