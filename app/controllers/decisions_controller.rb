@@ -46,6 +46,6 @@ class DecisionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def decision_params
-      params.require(:decision).permit(:id, :application_id, :date_created, :date_finalized, :is_pending, :is_accepted, :comment, :author_id)
+      params.require(:decision).permit(:id, :app_id, :date_created, :date_finalized, :is_pending, :is_accepted, :comment, :author_id)
     end
 end

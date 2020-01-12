@@ -1,51 +1,51 @@
 class AppController < ApplicationController
-  before_action :set_application, only: [:show, :update, :destroy]
+  before_action :set_app, only: [:show, :update, :destroy]
 
-  # GET /applications
+  # GET /apps
   def index
-    @applications = Application.all
+    @apps = App.all
 
-    render json: @applications
+    render json: @apps
   end
 
-  # GET /applications/1
+  # GET /apps/1
   def show
-    render json: @application
+    render json: @app
   end
 
-  # POST /applications
+  # POST /apps
   def create
-    @application = Application.new(application_params)
+    @app = App.new(app_params)
 
-    if @application.save
-      render json: @application, status: :created, location: @application
+    if @app.save
+      render json: @app, status: :created, location: @app
     else
-      render json: @application.errors, status: :unprocessable_entity
+      render json: @app.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /applications/1
+  # PATCH/PUT /apps/1
   def update
-    if @application.update(application_params)
-      render json: @application
+    if @app.update(app_params)
+      render json: @app
     else
-      render json: @application.errors, status: :unprocessable_entity
+      render json: @app.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /applications/1
+  # DELETE /apps/1
   def destroy
-    @application.destroy
+    @app.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_application
-      @application = Application.find(params[:id])
+    def set_app
+      @app = App.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
-    def application_params
-      params.require(:application).permit(:id, :user_id, :date_created)
+    def app_params
+      params.require(:app).permit(:id, :user_id, :date_created)
     end
 end
