@@ -6,5 +6,10 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
 
-  has_many :apps, :scores, :score_comments, :app_comments, :decisions, :ratings
+  has_many :apps
+  has_many :scores
+  has_many :score_comments
+  has_many :app_comments
+  has_many :decisions
+  has_many :ratings
 end
