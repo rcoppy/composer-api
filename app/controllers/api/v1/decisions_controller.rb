@@ -1,4 +1,4 @@
-class DecisionsController < ApplicationController
+class Api::V1::DecisionsController < ApplicationController
   before_action :set_decision, only: [:show, :update, :destroy]
 
   # GET /decisions

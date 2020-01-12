@@ -1,4 +1,4 @@
-class AppController < ApplicationController
+class Api::V1::AppController < ApplicationController
   before_action :set_app, only: [:show, :update, :destroy]
 
   # GET /apps

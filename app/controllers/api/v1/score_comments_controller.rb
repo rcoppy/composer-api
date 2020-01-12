@@ -1,4 +1,4 @@
-class ScoreCommentsController < ApplicationController
+class Api::V1::ScoreCommentsController < ApplicationController
   before_action :set_score_comment, only: [:show, :update, :destroy]
 
   # GET /score_comments
