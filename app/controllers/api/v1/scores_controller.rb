@@ -21,6 +21,14 @@ class Api::V1::ScoresController < ApplicationController
     render json: @score.genres
   end
 
+  def add_tag
+    @score.tags << Tag.find(tag_params[:id])
+  end
+
+  def add_genre
+    @score.genres << Genre.find(genre_params[:id])
+  end
+
   # POST /scores
   def create
     @score = Score.new(score_params)
@@ -56,4 +64,13 @@ class Api::V1::ScoresController < ApplicationController
     def score_params
       params.require(:score).permit(:id, :user_id, :file, :title, :about, :thumbnail, :app_id, :date_created, :is_deleted)
     end
+
+    def tag_params
+      params.require(:tag).permit(:id, :name)
+    end
+    
+    def genre_params
+      params.require(:genre).permit(:id, :name)
+    end
+
 end

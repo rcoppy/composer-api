@@ -10,6 +10,14 @@ Rails.application.routes.draw do
       resources :apps
       resources :ratings
       resources :users
+
+      scope 'scores', as: 'scores' do
+        get ':id/genres', :to => 'scores#show_genres'
+        get ':id/tags', :to => 'scores#show_tags'
+
+        post ':id/genres', :to => 'scores#add_genre'
+        post ':id/tags', :to => 'scores#add_tag'
+      end
     end
   end
 
