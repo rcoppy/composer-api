@@ -1,8 +1,8 @@
 class CreateApplicationComments < ActiveRecord::Migration[6.0]
   def change
     create_table :application_comments do |t|
-      t.index :application_id, foreign_key: true
-      t.index :author_id, foreign_key: true
+      t.belongs_to :app_id, foreign_key: true
+      t.belongs_to :author_id, foreign_key: {to_table: :users}
       t.text :text
       t.boolean :is_flagged
 

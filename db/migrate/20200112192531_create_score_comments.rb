@@ -1,8 +1,8 @@
 class CreateScoreComments < ActiveRecord::Migration[6.0]
   def change
     create_table :score_comments do |t|
-      t.index :score_id, foreign_key: true
-      t.index :author_id, foreign_key: true
+      t.belongs_to :score_id, foreign_key: true
+      t.belongs_to :author_id, foreign_key: {to_table: :users}
       t.text :text
       t.boolean :is_flagged
 
