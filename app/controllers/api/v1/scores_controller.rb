@@ -13,6 +13,14 @@ class Api::V1::ScoresController < ApplicationController
     render json: @score
   end
 
+  def show_tags
+    render json: @score.tags
+  end
+
+  def show_genres
+    render json: @score.genres
+  end
+
   # POST /scores
   def create
     @score = Score.new(score_params)

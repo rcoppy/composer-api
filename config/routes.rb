@@ -9,9 +9,10 @@ Rails.application.routes.draw do
       resources :decisions
       resources :apps
       resources :ratings
+      resources :users
     end
   end
-  
+
   devise_for :users,
             controllers: {
               sessions: 'sessions',
