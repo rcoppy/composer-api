@@ -7,8 +7,8 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:5000', '127.0.0.1:5000', 'localhost:8080', '127.0.0.1:8080', 'scores.cuclassicalcomposers.org',
-            '160.39.143.199' # alex dev laptop
+    origins '*'#'localhost:5000', '127.0.0.1:5000', 'localhost:8080', '127.0.0.1:8080', 'scores.cuclassicalcomposers.org',
+            #'160.39.143.199' # alex dev laptop
 
     resource '*',
       headers: :any,
