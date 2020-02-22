@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users,
-            controllers: {
+            :controllers => {
               sessions: 'sessions',
               registrations: 'registrations'
             }
