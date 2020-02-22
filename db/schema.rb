@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   enable_extension "plpgsql"
 
   create_table "application_comments", force: :cascade do |t|
-    t.integer "app_id"
-    t.integer "author_id_id"
+    t.bigint "app_id"
+    t.bigint "author_id_id"
     t.text "text"
     t.boolean "is_flagged"
     t.boolean "is_deleted"
@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   end
 
   create_table "apps", force: :cascade do |t|
-    t.integer "author_id_id"
+    t.bigint "author_id_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id_id"], name: "index_apps_on_author_id_id"
   end
 
   create_table "decisions", force: :cascade do |t|
-    t.integer "app_id"
-    t.integer "author_id_id"
+    t.bigint "app_id"
+    t.bigint "author_id_id"
     t.date "date_finalized"
     t.boolean "is_pending"
     t.boolean "is_accepted"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   end
 
   create_table "genres_scores", id: false, force: :cascade do |t|
-    t.integer "score_id", null: false
-    t.integer "genre_id", null: false
+    t.bigint "score_id", null: false
+    t.bigint "genre_id", null: false
   end
 
   create_table "jwt_blacklist", force: :cascade do |t|
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "app_id"
-    t.integer "author_id_id"
+    t.bigint "app_id"
+    t.bigint "author_id_id"
     t.integer "musicality"
     t.integer "duration"
     t.integer "instrumentation"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   end
 
   create_table "score_comments", force: :cascade do |t|
-    t.integer "score_id"
-    t.integer "author_id_id"
+    t.bigint "score_id"
+    t.bigint "author_id_id"
     t.text "text"
     t.boolean "is_flagged"
     t.boolean "is_deleted"
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.integer "author_id_id"
-    t.integer "app_id"
+    t.bigint "author_id_id"
+    t.bigint "app_id"
     t.string "file"
     t.string "title"
     t.text "about"
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_195513) do
   end
 
   create_table "scores_tags", id: false, force: :cascade do |t|
-    t.integer "score_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "score_id", null: false
+    t.bigint "tag_id", null: false
   end
 
   create_table "tags", force: :cascade do |t|
