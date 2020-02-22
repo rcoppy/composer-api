@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'users/password/request_reset', :to => 'registrations#request_password_reset'
+  devise_scope :user do
+    post 'users/password/request_reset', :to => 'registrations#request_password_reset'
+  end
 
   devise_for :users,
             :controllers => {
