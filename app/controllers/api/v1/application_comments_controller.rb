@@ -1,6 +1,7 @@
 class Api::V1::ApplicationCommentsController < ApplicationController
   before_action :set_application_comment, only: [:show, :update, :destroy]
-
+  authorize_resource
+  
   # GET /application_comments
   def index
     @application_comments = ApplicationComment.all
