@@ -1,6 +1,7 @@
 class Api::V1::RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :update, :destroy]
-
+  authorize_resource
+  
   # GET /ratings
   def index
     @ratings = Rating.all

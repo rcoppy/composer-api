@@ -1,6 +1,7 @@
 class Api::V1::DecisionsController < ApplicationController
   before_action :set_decision, only: [:show, :update, :destroy]
-
+  authorize_resource
+  
   # GET /decisions
   def index
     @decisions = Decision.all

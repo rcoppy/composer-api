@@ -1,6 +1,7 @@
 class Api::V1::GenresController < ApplicationController
   before_action :set_genre, only: [:show, :update, :destroy]
-
+  authorize_resource
+  
   # GET /genres
   def index
     @genres = Genre.all

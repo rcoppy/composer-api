@@ -1,6 +1,7 @@
 class Api::V1::ScoreCommentsController < ApplicationController
   before_action :set_score_comment, only: [:show, :update, :destroy]
-
+  authorize_resource
+  
   # GET /score_comments
   def index
     @score_comments = ScoreComment.all

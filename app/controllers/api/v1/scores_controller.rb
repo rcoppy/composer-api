@@ -1,6 +1,7 @@
 class Api::V1::ScoresController < ApplicationController
   before_action :set_score, only: [:show, :update, :destroy]
-
+  authorize_resource
+  
   # GET /scores
   def index
     @scores = Score.all
