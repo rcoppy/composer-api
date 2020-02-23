@@ -1,7 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
     respond_to :json
-  
-    before_action :set_user
 
     def create
       build_resource(sign_up_params)
@@ -11,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def request_password_reset
+      set_user
       if @user.send_reset_password_instructions
         render json: @user
       else
